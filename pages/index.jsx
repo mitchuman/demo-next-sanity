@@ -1,10 +1,7 @@
 import { client } from 'lib/sanity'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import PreviewButton from 'components/PreviewButton'
 
 const IndexPg = ({ humans, preview }) => {
-  const router = useRouter()
-
   return <>
     <h1>Home</h1>
 
@@ -24,10 +21,7 @@ const IndexPg = ({ humans, preview }) => {
       ))}
     </ul>
 
-    {preview
-      ? <Link href={`/api/preview?exit=1`}>Exit preview</Link>
-      : <Link href={`/api/preview?redirect=${ router.pathname }`}>Preview</Link>
-    }
+    <PreviewButton preview={preview} />
   </>
 }
 
