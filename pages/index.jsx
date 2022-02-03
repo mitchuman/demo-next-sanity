@@ -28,13 +28,9 @@ const IndexPg = ({ humans, preview }) => {
 
 export default IndexPg
 
-export async function getStaticProps(context) {
-  let { preview = false } = context
-
-  // TODO: subscribe to get latest data
-
-  const humans = await client.fetch(`
-    *[_type == "human" ${!preview ? `&& !(_id in path('drafts.**'))` : ''}] | order(name asc) {
+export async function getStaticProps({ preview = false }) {
+  const humans = await client(preview).fetch(`
+    *[_type == "human"] | order(name asc) {
       name,
       skills[]->{name}
     }
