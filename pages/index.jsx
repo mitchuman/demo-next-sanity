@@ -1,4 +1,5 @@
 import { client } from 'lib/sanity'
+import { dev } from 'lib/env'
 import PreviewButton from 'components/PreviewButton'
 
 const IndexPg = ({ humans, preview }) => {
@@ -21,7 +22,7 @@ const IndexPg = ({ humans, preview }) => {
       ))}
     </ul>
 
-    <PreviewButton preview={preview} />
+    {!!dev && <PreviewButton preview={preview} />}
   </>
 }
 
@@ -29,6 +30,8 @@ export default IndexPg
 
 export async function getStaticProps(context) {
   let { preview = false } = context
+
+  // TODO: subscribe to get latest data
 
   const humans = await client.fetch(`
     *[_type == "human" ${!preview ? `&& !(_id in path('drafts.**'))` : ''}] | order(name asc) {
