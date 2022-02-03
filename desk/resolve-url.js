@@ -6,7 +6,7 @@ export default doc => {
   const url = new URL(baseUrl)
 
   url.pathname = '/api/preview'
-  url.searchParams.append('redirect', doc?.seo?.slug.current ?? '/')
+  url.searchParams.append('redirect', doc.seo?.slug.current ?? '/')
 
   return url.toString()
 }
