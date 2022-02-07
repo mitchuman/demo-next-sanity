@@ -7,6 +7,7 @@ export default doc => {
 
   url.pathname = '/api/preview'
   url.searchParams.append('redirect', doc.seo?.slug.current ?? '/')
+  url.searchParams.append('secret', 'tacos')
 
   return url.toString()
 }
