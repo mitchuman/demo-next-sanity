@@ -7,7 +7,7 @@ export default doc => {
 
   url.pathname = '/api/preview'
   url.searchParams.append('redirect', `/${ doc.seo?.slug.current ?? '' }`)
-  url.searchParams.append('secret', process.env.NEXT_PUBLIC_SANITY_PREVIEW_SECRET)
+  url.searchParams.append('secret', process.env.SANITY_STUDIO_PREVIEW_SECRET)
 
   return url.toString()
 }
