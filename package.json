@@ -1,0 +1,12 @@
+{
+  "name": "demo-next-sanity",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mitchuman/demo-next-sanity.git",
+  "author": "Mitchell Christ <mitchell@human.marketing>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/**"
+  ]
+}

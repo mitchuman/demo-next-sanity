@@ -7,7 +7,7 @@
   "author": "mitchuman <mitchell@human.marketing>",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "sanity start",
+    "start": "sanity start --port=3333",
     "build": "sanity build",
     "deploy": "sanity deploy"
   },
@@ -27,7 +27,6 @@
     "react": "^17.0",
     "react-dom": "^17.0",
     "sanity-plugin-iframe-pane": "^1.0.15",
-    "styled-components": "^5.2.0"
-  },
+    "styled-components": "^5.2.0" },
   "devDependencies": {}
 }
