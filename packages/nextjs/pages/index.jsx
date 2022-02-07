@@ -1,6 +1,9 @@
 import { client, processData } from 'utils/sanity'
+import SEO from 'lib/SEO'
 
 const IndexPg = ({ pages, humans }) => <>
+  <SEO />
+
   <h1>Home</h1>
 
   <section>
@@ -37,14 +40,7 @@ export default IndexPg
 
 export async function getStaticProps({ preview = false }) {
   const pages = await client(preview).fetch(`*[_type == "page"] | order(title asc)`)
-
-  const humans = await client(preview).fetch(`
-    *[_type == "human"] | order(name asc) {
-      _id,
-      name,
-      skills[]->{name}
-    }
-  `)
+  const humans = await client(preview).fetch(`*[_type == "human"] | order(name asc) { ..., skills[]->{name} }`)
 
   return {
     props: {

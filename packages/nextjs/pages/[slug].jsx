@@ -1,13 +1,11 @@
 import { client, processData } from 'utils/sanity'
-import Head from 'next/head'
+import SEO from 'lib/SEO'
 
 const Page = ({ page }) => <>
-  <Head>
-    <title>{page.seo.title}</title>
-    <meta name="description" content={page.seo.description} />
-  </Head>
+  <SEO {...page.seo} />
 
   <h1>{page.title}</h1>
+  <p>{page.seo.description}</p>
 
   <p>Go back <a href="/">home</a>.</p>
 </>
