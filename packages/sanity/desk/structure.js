@@ -5,7 +5,7 @@ import JsonPreview from './lib/views/json-preview'
 export const getDefaultDocumentNode = ({ documentId, schemaType }) => {
   return S.document().views([
     S.view.form(),
-    schemaType === 'human' && Iframe,
+    ['page', 'human'].includes(schemaType) && Iframe,
     JsonPreview,
   ].filter(Boolean))
 }
