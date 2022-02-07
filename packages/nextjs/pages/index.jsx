@@ -1,16 +1,25 @@
-import { client } from 'lib/sanity'
-import { dev } from 'lib/env'
-import PreviewButton from 'components/PreviewButton'
+import { client, processData } from 'utils/sanity'
 
-const IndexPg = ({ humans, preview }) => {
-  return <>
-    <h1>Home</h1>
+const IndexPg = ({ pages, humans }) => <>
+  <h1>Home</h1>
 
+  <section>
+    <h2>List of Pages:</h2>
+    <ul>
+      {pages?.map((page, key) => (
+        <li key={key}>
+          <a href={`/${page.seo.slug.current}`}>{page.title}</a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2>List of Humans:</h2>
     <ul>
       {humans?.map((human, i) => (
         <li key={i}>
           {human.name}
-
           {!!human.skills?.length && (
             <ul>
               {human.skills.map(((skill, j) => (
@@ -21,16 +30,17 @@ const IndexPg = ({ humans, preview }) => {
         </li>
       ))}
     </ul>
-
-    {!!dev && <PreviewButton preview={preview} />}
-  </>
-}
+  </section>
+</>
 
 export default IndexPg
 
 export async function getStaticProps({ preview = false }) {
+  const pages = await client(preview).fetch(`*[_type == "page"] | order(title asc)`)
+
   const humans = await client(preview).fetch(`
     *[_type == "human"] | order(name asc) {
+      _id,
       name,
       skills[]->{name}
     }
@@ -38,7 +48,8 @@ export async function getStaticProps({ preview = false }) {
 
   return {
     props: {
-      humans,
+      pages: processData(pages, preview),
+      humans: processData(humans, preview),
       preview,
     }
   }
