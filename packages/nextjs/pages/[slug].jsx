@@ -13,7 +13,7 @@ const Page = ({ page }) => <>
 export default Page
 
 export async function getStaticPaths() {
-  const pages = await client(true).fetch(`*[_type == "page"] | order(title asc)`)
+  const pages = await client().fetch(`*[_type == "page"] | order(title asc)`)
 
   return {
     paths: pages.map(pages => ({ params: { slug: pages.seo.slug.current } })),

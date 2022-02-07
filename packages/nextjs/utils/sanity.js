@@ -8,7 +8,7 @@ const config = {
   useCdn: !dev,
 }
 
-export const client = preview => !preview
+export const client = (preview = dev) => !preview
   ? sanityClient(config)
   : sanityClient({
     ...config,
