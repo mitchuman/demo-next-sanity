@@ -1,12 +1,12 @@
-import { client, processData, urlFor } from 'utils/sanity'
-import NextImage from 'lib/image/NextImage'
+import { client, processData } from 'utils/sanity'
+// import NextImage from 'lib/image/NextImage'
 import SanityImage from 'lib/image/SanityImage'
 import newtab from 'utils/newtab'
 
 const TestPg = ({ data }) => <>
   <h1>{data.title}</h1>
 
-  <h2><a href="https://www.sanity.io/plugins/next-sanity-image" {...newtab}>next-sanity-image</a></h2>
+  {/* <h2><a href="https://www.sanity.io/plugins/next-sanity-image" {...newtab}>next-sanity-image</a></h2>
   <ul>
     <li>includes <code>srcset</code></li>
     <li>Need to wrap in element with <code>position: relative;</code> in order to set <code>width</code></li>
@@ -18,7 +18,7 @@ const TestPg = ({ data }) => <>
         <NextImage image={image} builder={b => b.width(200)} alt="" />
       </div>
     ))}
-  </figure>
+  </figure> */}
 
   <h2><a href="https://www.sanity.io/docs/image-url" {...newtab}>@sanity/image-url</a></h2>
   <ul>

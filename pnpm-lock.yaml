@@ -12,7 +12,6 @@ importers:
       autoprefixer: ^10.4.2
       clsx: ^1.1.1
       next: 12.0.10
-      next-sanity-image: ^3.2.1
       postcss: ^8.4.6
       react: 17.0.2
       react-dom: 17.0.2
@@ -22,7 +21,6 @@ importers:
       '@sanity/image-url': 1.0.1
       clsx: 1.1.1
       next: 12.0.10_react-dom@17.0.2+react@17.0.2
-      next-sanity-image: 3.2.1_3ea4c1af073fef57e06bf5f046b512e0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     devDependencies:
@@ -2942,11 +2940,6 @@ packages:
       react: ^16.9 || ^17
     dependencies:
       react: 17.0.2
-    dev: false
-
-  /@sanity/image-url/0.140.22:
-    resolution: {integrity: sha512-CAmQZnj+KM7FSEYiWlIGDit072syicYuAw0w7R2ctMzHiZ4p9mE/g6dBnYqrqFUrw2J+GpJgPt+RVspKP8vdqA==}
-    engines: {node: '>=10.0.0'}
     dev: false
 
   /@sanity/image-url/1.0.1:
@@ -8292,19 +8285,6 @@ packages:
 
   /neo-async/2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
-    dev: false
-
-  /next-sanity-image/3.2.1_3ea4c1af073fef57e06bf5f046b512e0:
-    resolution: {integrity: sha512-lnynR/h7kD5ueVxQoam8ElKXb+bGWuU1cP+PCwx1NzIiBUHM2wBMnvmpt+emubGocMaIURT/iwPU46VnmB9rsQ==}
-    peerDependencies:
-      '@sanity/client': ^2.11.0
-      next: ^11.0.0 || ^12.0.0
-      react: ^17.0.2
-    dependencies:
-      '@sanity/client': 3.0.4
-      '@sanity/image-url': 0.140.22
-      next: 12.0.10_react-dom@17.0.2+react@17.0.2
-      react: 17.0.2
     dev: false
 
   /next-tick/1.0.0:
