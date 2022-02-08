@@ -1,21 +1,10 @@
-import { client, processData } from 'utils/sanity'
-import SanityImage from 'lib/image/SanityImage'
+import { client, processData, urlFor } from 'utils/sanity'
 import NextImage from 'lib/image/NextImage'
+import SanityImage from 'lib/image/SanityImage'
 import newtab from 'utils/newtab'
 
 const TestPg = ({ data }) => <>
   <h1>{data.title}</h1>
-
-  <h2><a href="https://www.sanity.io/docs/image-url" {...newtab}>@sanity/image-url</a></h2>
-  <ul>
-    <li>can add transformations (<code>width()</code>, <code>height()</code>, etc)</li>
-    <li>no <code>srcset</code>, unless manually implemented</li>
-  </ul>
-  <figure className="flex flex-wrap">
-    {data.images?.map((image, key) => (
-      <SanityImage image={image} builder={b => b.width(200)} key={key} />
-    ))}
-  </figure>
 
   <h2><a href="https://www.sanity.io/plugins/next-sanity-image" {...newtab}>next-sanity-image</a></h2>
   <ul>
@@ -28,6 +17,17 @@ const TestPg = ({ data }) => <>
       <div className="relative" key={key}>
         <NextImage image={image} builder={b => b.width(200)} alt="" />
       </div>
+    ))}
+  </figure>
+
+  <h2><a href="https://www.sanity.io/docs/image-url" {...newtab}>@sanity/image-url</a></h2>
+  <ul>
+    <li>can add transformations (<code>width()</code>, <code>height()</code>, etc)</li>
+    <li>no <code>srcset</code>, unless manually implemented (TODO)</li>
+  </ul>
+  <figure className="flex flex-wrap">
+    {data.images?.map((image, key) => (
+      <SanityImage image={image} builder={b => b .width(200)} key={key} />
     ))}
   </figure>
 </>

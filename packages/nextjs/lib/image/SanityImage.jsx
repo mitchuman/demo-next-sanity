@@ -1,9 +1,7 @@
 import { urlFor } from 'utils/sanity'
 
 const Img = ({ image, builder, alt = '', ...props }) => {
-  const src = (
-    builder(urlFor(image)) || urlFor(image)
-  ).auto('format').url()
+  const src = (builder(urlFor(image)) || urlFor(image)).auto('format').url()
 
   // add width and height attr
   const { w, h } = src.match(/(?<w>\d+)x(?<h>\d+)/)?.groups
