@@ -1,4 +1,4 @@
-import { client, processData, urlFor } from 'utils/sanity'
+import { client, processData } from 'utils/sanity'
 import SanityImage from 'lib/image/SanityImage'
 import NextImage from 'lib/image/NextImage'
 import newtab from 'utils/newtab'
@@ -13,7 +13,7 @@ const TestPg = ({ data }) => <>
   </ul>
   <figure className="flex flex-wrap">
     {data.images?.map((image, key) => (
-      <SanityImage src={urlFor(image).width(200)} key={key} />
+      <SanityImage image={image} builder={b => b.width(200)} key={key} />
     ))}
   </figure>
 
@@ -26,7 +26,7 @@ const TestPg = ({ data }) => <>
   <figure className="flex flex-wrap">
     {data.images?.map((image, key) => (
       <div className="relative" key={key}>
-        <NextImage image={image} imageBuilder={b => b.width(200)} alt="" />
+        <NextImage image={image} builder={b => b.width(200)} alt="" />
       </div>
     ))}
   </figure>
