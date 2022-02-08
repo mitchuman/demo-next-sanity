@@ -1,4 +1,5 @@
 import PreviewButton from 'lib/PreviewButton'
+import 'styles/app.css'
 
 const App = ({ Component, pageProps }) => <>
   <Component {...pageProps} />

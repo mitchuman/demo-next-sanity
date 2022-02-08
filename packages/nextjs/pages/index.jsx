@@ -6,12 +6,16 @@ const IndexPg = ({ pages, humans }) => <>
 
   <h1>Home</h1>
 
+  <nav>
+    <a href="/test-pg">Test pg</a>
+  </nav>
+
   <section>
     <h2>List of Pages:</h2>
     <ul>
       {pages?.map((page, key) => (
         <li key={key}>
-          <a href={`/${page.seo.slug.current}`}>{page.title}</a>
+          <a href={`/pages/${page.seo.slug.current}`}>{page.title}</a>
         </li>
       ))}
     </ul>

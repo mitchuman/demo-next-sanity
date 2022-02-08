@@ -1,9 +1,10 @@
-import sanityClient from '@sanity/client'
 import { dev } from './env'
+import sanityClient from '@sanity/client'
+import ImageUrlBuilder from '@sanity/image-url'
 
-const config = {
-  projectId: process.env.SANITY_PROJECT_ID,
-  dataset: process.env.SANITY_DATASET,
+export const config = {
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: '2020-01-01',
   useCdn: !dev,
 }
@@ -22,10 +23,10 @@ export function processData(data, preview) {
       .filter(({ _id }) => _id?.startsWith('drafts.'))
       .map(({ _id }) => _id.replace('drafts.', ''))
 
-    let filtered_data = data.filter(({ _id }) => !draft_ids.includes(_id))
-
-    return filtered_data
+    return data.filter(({ _id }) => !draft_ids.includes(_id))
   }
 
   return data
 }
+
+export const urlFor = image => ImageUrlBuilder(config).image(image)
